@@ -1,0 +1,194 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: rgb(44, 43, 43);
+    cursor: none;
+    
+    
+}
+.cursor-dot {
+    width: 10px;
+    height: 10px;
+    background-color:white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.hero header {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background: #222;
+}
+
+.wrapper {
+    width: 1280px;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    padding: 40px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo .logo-text {
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+}
+
+nav .togglebtn {
+    display: none;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 45px;
+    right: 3%;
+    z-index: 5;
+    cursor: pointer;
+    background-color: transparent;
+}
+nav .togglebtn.bounce .bar {
+    width: 35px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: all 0.3s ease;
+}
+
+nav .togglebtn.bounce:hover .bar {
+    transform: scaleX(1.2);
+}
+nav .togglebtn i {
+    font-size: 28px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+nav .navlinks {
+    list-style-type: none;
+    display: flex;
+    transition: background-color 0.3s ease;
+}
+
+nav .navlinks li {
+    display: inline-block;
+    font-size: 22px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+nav .navlinks li:hover {
+    transform: translateY(-5px); /* Lifts the link slightly on hover */
+}
+
+nav .navlinks li a {
+    color: white;
+    margin-right: 7rem;
+    position: relative;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+nav .navlinks li a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000; /* Box color */
+    left: 0;
+    top: 0;
+    z-index: -1; /* Place behind the text */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+nav .navlinks li a:hover::before {
+    transform: scaleX(1); /* Expands the box effect on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav .togglebtn {
+        display: block;
+    }
+   
+
+    nav .navlinks {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #222;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        z-index: 4;
+    }
+
+    nav .navlinks.show {
+        display: flex;
+    }
+
+    nav .navlinks li {
+        display: block;
+        text-align: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #444;
+    }
+
+    nav .navlinks li a {
+        margin: 0;
+        color: white;
+        transition: color 0.3s ease;
+    }
+}
+/* Keyframes for fading in the navigation links */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

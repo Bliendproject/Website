@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bliend</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero-header" id="Home">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <i class="fa-solid fa"></i>
+                    <div class="logo-text">Bliend</div>
+                </div>
+                <nav>
+                    <div class="togglebtn">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="cursor-dot" data-cursor-dot></div>
+                    <div class="cursor-outline"data-cursor-outline></div>
+                    <ul class="navlinks">
+                        <li><a href="#advertisement">Advertisement</a></li>
+                        <li><a href="#marketing">Marketing</a></li>
+                        <li><a href="#software">Software</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+    </div>
+
+    <script>
+        const cursorDot = document.querySelector("[data-cursor-dot]");
+const cursorOutline = document.querySelector("[data-cursor-outline]");
+
+window.addEventListener("mousemove", function(e) {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    cursorDot.style.left = posX + 'px';
+    cursorDot.style.top = posY + 'px';
+
+    cursorOutline.style.left = posX + 'px';
+    cursorOutline.style.top = posY + 'px';
+
+    cursorOutline.animate({
+        left: '${posX}px',
+        top:'${posY}px'
+    },{duration: 500,fill: "forwards"})
+    
+});
+        const toggleBtn = document.querySelector('.togglebtn');
+        const navLinks = document.querySelector('.navlinks');
+
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
